@@ -8,38 +8,75 @@ use App\Http\Requests;
 
 class MainController extends Controller
 {
+    public $request;
+
+    public function __construct(Request $request){
+        $this->request = $request;
+    }
+
+    private function _getPage($page){
+        $link = config('link.'.$page);
+        $submenu = view('layout.submenu')
+            ->with('link', $page)
+            ->render();
+        return $this->request->isXmlHttpRequest() ?
+            response()->json([
+                'html' => view($page)
+                    ->with('empty', true)
+                    ->with('link', $link)
+                    ->render(),
+                'link' => $link,
+                'submenu' => $submenu
+            ]) :
+            view($page)
+                ->with('empty', false)
+                ->with('link', $page);
+    }
+/*
     public function anyLoad(Request $request, $page){
         $currentUrl = action('MainController@anyLoad', $page);
-        if ($request->isMethod('post')){
+        if ($request->isXmlHttpRequest()){
             $html = view($page)
                 ->with('currentUrl', $currentUrl)
-                ->with('isJSON', true)
+                ->with('empty', true)
                 ->render();
-            return response()->json(['status' => true, 'html' => $html]);
+            return $html;
         }else{
             return view($page)
                 ->with('currentUrl', $currentUrl)
-                ->with('isJSON', false);
+                ->with('empty', false);
         }
-    }
+    }*/
 
     public function getIndex(){
-        return view('index');
+        return $this->_getPage('index');
     }
 
     public function getAbout(){
-        return view('about');
+        return $this->_getPage('about');
+    }
+
+    public function getCommand(){
+        return $this->_getPage('command');
+    }
+
+    public function getClients(){
+        return $this->_getPage('clients');
     }
 
     public function getPortfolio(){
-        return view('portfolio');
+        return $this->_getPage('portfolio');
+    }
+
+    public function getProject(){
+        return $this->_getPage('project');
     }
 
     public function getNews(){
-        return view('news');
+        return $this->_getPage('news');
     }
 
     public function getContacts(){
-        return view('contacts');
+        return $this->_getPage('contacts');
     }
 }

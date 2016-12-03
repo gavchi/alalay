@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.'.(!$empty ? 'main' : 'empty'), ['link' => $link])
 
 @section('content')
     <div class="page_box journal">

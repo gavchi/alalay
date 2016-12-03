@@ -22,21 +22,21 @@
 
 <aside class="sidebar">
     <div class="top__logo">
-        <a href="{{action('MainController@getIndex')}}"><img src="/images/logo.png" alt="Алалай! ad&design"></a>
+        <a href="{{action('MainController@getIndex')}}" data-title="Алалай!"><img src="/images/logo.png" alt="Алалай! ad&design"></a>
     </div><!--.top__logo-->
 
     <nav class="sidebar__nav">
 
         <div class="nav__menu">
             <ul class="list-unstyle">
-                <li><a href="{{action('MainController@getAbout')}}">Кто мы</a></li>
-                <li><a href="{{action('MainController@getPortfolio')}}">Портфолио</a></li>
-                <li><a href="{{action('MainController@getNews')}}">Журнал</a></li>
-                <li><a href="{{action('MainController@getContacts')}}">Контакты</a></li>
+                <li @if('about' === $link) class="active" @endif><a href="{{action('MainController@getAbout')}}" data-link="about">Кто мы</a></li>
+                <li @if('portfolio' === $link) class="active" @endif><a href="{{action('MainController@getPortfolio')}}" data-link="portfolio">Портфолио</a></li>
+                <li @if('news' === $link) class="active" @endif><a href="{{action('MainController@getNews')}}" data-link="news">Журнал</a></li>
+                <li @if('contacts' === $link) class="active" @endif><a href="{{action('MainController@getContacts')}}" data-link="contacts">Контакты</a></li>
             </ul>
         </div><!--.nav__menu-->
 
-        <div class="sidebar__circle"></div>
+        @include('layout.submenu', ['link' => $link])
 
     </nav><!--.sidebar__nav-->
 
@@ -107,13 +107,12 @@
 
 </div><!--.mobile_menu-->
 
-
-
 <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.history.js"></script>
 <script src="/js/mwheelIntent.js"></script>
 <script src="/js/jquery.mousewheel.js"></script>
 <script src="/js/jquery.jscrollpane.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyABJQBZV_AyH7jw9qD-46wLXLqmbitRobw"></script>
 <script src="/js/jquery.textfill.min.js"></script>
 <script src="/js/bootstrap.modal.min.js"></script>
 <script src="/js/design.js"></script>

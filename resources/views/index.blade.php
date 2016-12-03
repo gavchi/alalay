@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.'.(!$empty ? 'main' : 'empty'), ['link' => $link])
 
 @section('content')
     <div class="main_acc__coub main_acc__coub1"></div>
