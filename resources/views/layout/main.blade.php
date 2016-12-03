@@ -52,20 +52,19 @@
         <div class="modal-content">
 
             <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>-->
-
             <div class="modal_box__body">
-                <form action="#">
+                <form action="{{action('FeedbackController@postSend')}}" method="post">
 
                     <div class="inp-group">
-                        <input type="text" name="#" placeholder="Ваше имя" class="inp-style">
+                        <input type="text" name="name" placeholder="Ваше имя" class="inp-style">
                     </div><!--.inp-group-->
 
                     <div class="inp-group">
-                        <input type="text" name="#" placeholder="Ваш e-mail" class="inp-style">
+                        <input type="text" name="email" placeholder="Ваш e-mail" class="inp-style">
                     </div><!--.inp-group-->
 
                     <div class="inp-group">
-                        <textarea name="#" rows="6" placeholder="Текст сообщения" class="inp-style"></textarea>
+                        <textarea name="message" rows="6" placeholder="Текст сообщения" class="inp-style"></textarea>
                     </div><!--.inp-group-->
 
                     <div class="inp-group">
