@@ -52,6 +52,12 @@ function historyJS(){
                         //console.log(collectionSlide);
                         container.html();
                         container.html(outJSON.html);
+
+                        fitTitleText();
+                        scrollerInit();
+                        main_accInit();
+                        mapInit();
+
                         container.animate({
                             left: 0
                         },{
@@ -74,10 +80,6 @@ function historyJS(){
                                 });
                             }
                         });
-                        fitTitleText();
-                        scrollerInit();
-                        main_accInit();
-                        mapInit();
                     }
                 }, 100);
             }
