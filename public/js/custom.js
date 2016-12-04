@@ -10,9 +10,81 @@ function historyJS(){
     // Bind to StateChange Event
     History.Adapter.bind(window,'statechange',function() { // Note: We are using statechange instead of popstate
         var State = History.getState();
+        var outJSON = false;
+        var container = $('section.content');
+        var sidebar = $('.sidebar__nav');
+        console.log(container.offset().left, container.width());
+        container.animate({
+            left: container.width()
+        },{
+            duration: 1500,
+            queue: true,
+            easing: 'easeInOutBack',
+            start: function(){
+                var submenu = sidebar.find('.nav__menu').next();
+                submenu.animate({
+                    top: 0-window.innerHeight
+                },{
+                    duration: 500,
+                    queue: true,
+                    complete: function(){
+                        submenu.remove()
+                    }
+                });
+                $.ajax({
+                    type: "GET",
+                    async: false,
+                    dataType: "json",
+                    url: State.url,
+                    error: function(msg){
+                        alert( 'Error' );
+                    },
+                    success: function(result, status){
+                        outJSON = result;
+                    }
+                });
+            },
+            complete: function(){
+                //location.hash = '!'+url.split(location.origin)[1];
+                var waitAjax = setInterval(function(){
+                    if(false != outJSON){
+                        clearInterval(waitAjax);
+                        //console.log(collectionSlide);
+                        container.html();
+                        container.html(outJSON.html);
+                        container.animate({
+                            left: 0
+                        },{
+                            duration: 1000,
+                            queue: true,
+                            easing: 'easeOutCirc',
+                            start: function(){
+                                $('.nav__menu a').parent().removeClass('active');
+                                //$('.nav__menu').nextAll().remove();
+
+                                sidebar.find('.nav__menu').after($(outJSON.submenu).css('top', -700));
+                                sidebar.find('a[data-link="'+outJSON.link+'"]').parent().addClass('active');
+                                var submenu = sidebar.find('.nav__menu').next();
+                                submenu.animate({
+                                    top: 0
+                                },{
+                                    duration: 1000,
+                                    queue: true,
+                                    easing: 'easeOutCirc'
+                                });
+                            }
+                        });
+                        fitTitleText();
+                        scrollerInit();
+                        main_accInit();
+                        mapInit();
+                    }
+                }, 100);
+            }
+        });
         //$('section.content').load(State.url);
         // Instead of the line above, you could run the code below if the url returns the whole page instead of just the content (assuming it has a `#content`):
-        $.ajax({
+        /*$.ajax({
             type: "GET",
             async: false,
             dataType: "json",
@@ -30,7 +102,8 @@ function historyJS(){
                 main_accInit();
                 mapInit();
             }
-        });/*
+        });*/
+        /*
          $.get(State.url, function(response) {
              console.log(response);
              $('section.content').html(response);
@@ -38,10 +111,20 @@ function historyJS(){
          });*/
 
     });
+/*
+    History.Adapter.bind(window,'statechange',function() {
+        var State = History.getState();
+        console.log(State);
+    });*/
 
 
     // Capture all the links to push their url to the history stack and trigger the StateChange Event
     $('.sidebar__nav, .top__logo').on('click','a',function(e) {
+        e.preventDefault();
+        History.pushState(null, $(this).data('title') ? $(this).data('title') : $(this).text(), $(this).attr('href'));
+    });
+    //Portfolio
+    $('section.content').on('click','a.portfolio__item',function(e) {
         e.preventDefault();
         History.pushState(null, $(this).data('title') ? $(this).data('title') : $(this).text(), $(this).attr('href'));
     });
@@ -166,7 +249,27 @@ function mapInit(){
     }
 }
 
+function sendEmail(){
+    $('.modal').on('submit', 'form', function(e) {
+        e.preventDefault();
+        var url = $(this).attr('action');
+        var data = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            error: function (msg) {
+                alert('Error');
+            },
+            success: function (result, status) {
+                $('.howmatch_modal').modal('hide');
+            }
+        });
+    });
+}
+
 $(function() {
     //fitTitleText();
     historyJS();
+    sendEmail();
 });

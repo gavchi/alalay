@@ -21,32 +21,26 @@
 
                 <div class="journal__entry">
                     <div class="journal__entry-title">
-                        <h3><a href="#">Крутой заголовок</a></h3>
+                        <h3><a href="#">Привет, меня зовут Алалай!</a></h3>
                     </div><!--.journal__entry-title-->
 
                     <div class="journal__entry-body">
-                        <p>Печать на 3D-принтере - это невероятно простое и быстро моделирование, позволяющее воссоздать практически любые объемные предметы, сохраняя высокий уровень их детализации. Напечатаем на 3D-принтере индивидуально для вас.</p>
+                        <p>Добро пожаловать на новый сайт агентства Алалай! Скоро мы поделимся с вами нашими новостями.</p>
                     </div><!--.journal__entry-body-->
 
                     <div class="journal__entry-tags">
                         <ul class="list-unstyle">
-                            <li><a href="#">#хэштэг</a></li>
-                            <li><a href="#">#хэштэг</a></li>
-                            <li><a href="#">#ещехэштэг</a></li>
-                            <li><a href="#">#иеще</a></li>
-                            <li><a href="#">#ещеодин</a></li>
-                            <li><a href="#">#хэштэг</a></li>
-                            <li><a href="#">#кваква</a></li>
+                            <li><a href="#">#алалай</a></li>
                         </ul>
                     </div><!--.journal__entry-tags-->
 
                     <div class="journal__entry-thumbs">
                         <ul>
-                            <li><a href="#"><img src="images/img-jthumb1.jpg" alt=""></a></li>
+                            <li><a href="#"><img src="/images/Newalalay.jpg" alt=""></a></li>
                         </ul>
                     </div><!--.journal__entry-thumbs-->
                 </div><!--.journal__entry-->
-
+{{--
 
                 <div class="journal__entry">
                     <div class="journal__entry-title">
@@ -111,7 +105,7 @@
                         </ul>
                     </div><!--.journal__entry-thumbs-->
                 </div><!--.journal__entry-->
-
+--}}
             </div><!--.journal__entries-->
 
         </div><!--.page_box__body-->

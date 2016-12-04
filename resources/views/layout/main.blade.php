@@ -64,7 +64,7 @@
                     </div><!--.inp-group-->
 
                     <div class="inp-group">
-                        <textarea name="message" rows="6" placeholder="Текст сообщения" class="inp-style"></textarea>
+                        <textarea name="text" rows="6" placeholder="Текст сообщения" class="inp-style"></textarea>
                     </div><!--.inp-group-->
 
                     <div class="inp-group">
@@ -108,6 +108,7 @@
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.history.js"></script>
+<script src="/js/jquery.easing.1.3.js"></script>
 <script src="/js/mwheelIntent.js"></script>
 <script src="/js/jquery.mousewheel.js"></script>
 <script src="/js/jquery.jscrollpane.min.js"></script>

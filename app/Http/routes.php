@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     Route::controllers([
-        '' => 'MainController',
-        'feedback' => 'FeedbackController'
+        'feedback' => 'FeedbackController',
+        '' => 'MainController'
     ]);
 });

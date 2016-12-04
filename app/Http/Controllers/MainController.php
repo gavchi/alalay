@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Work;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,23 +15,25 @@ class MainController extends Controller
         $this->request = $request;
     }
 
-    private function _getPage($page){
+    private function _getPage($page, $variables=[]){
         $link = config('link.'.$page);
         $submenu = view('layout.submenu')
             ->with('link', $page)
             ->render();
         return $this->request->isXmlHttpRequest() ?
             response()->json([
-                'html' => view($page)
-                    ->with('empty', true)
-                    ->with('link', $link)
+                'html' => view($page, array_merge([
+                    'empty' => true,
+                    'link' => $link,
+                ], $variables))
                     ->render(),
                 'link' => $link,
                 'submenu' => $submenu
             ]) :
-            view($page)
-                ->with('empty', false)
-                ->with('link', $page);
+            view($page, array_merge([
+                'empty' => false,
+                'link' => $page,
+            ], $variables));
     }
 /*
     public function anyLoad(Request $request, $page){
@@ -65,11 +68,20 @@ class MainController extends Controller
     }
 
     public function getPortfolio(){
-        return $this->_getPage('portfolio');
+        $Works = Work::all()->toArray();
+        $firstItems = array_slice($Works, 0, count($Works)/2);
+        $secondItems = array_slice($Works, count($Works)/2 + 1);
+        return $this->_getPage('portfolio',[
+            'firstItems' => $firstItems,
+            'secondItems' => $secondItems,
+        ]);
     }
 
-    public function getProject(){
-        return $this->_getPage('project');
+    public function getProject($id){
+        $Work = Work::find($id);
+        return $this->_getPage('project',[
+            'Work' => $Work
+        ]);
     }
 
     public function getNews(){
