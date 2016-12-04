@@ -21,7 +21,7 @@
 
                 <div class="journal__entry">
                     <div class="journal__entry-title">
-                        <h3><a href="#">Привет, меня зовут Алалай!</a></h3>
+                        <h3>Привет, меня зовут Алалай!</h3>
                     </div><!--.journal__entry-title-->
 
                     <div class="journal__entry-body">
@@ -36,7 +36,7 @@
 
                     <div class="journal__entry-thumbs">
                         <ul>
-                            <li><a href="#"><img src="/images/Newalalay.jpg" alt=""></a></li>
+                            <li><img src="/images/Newalalay.jpg" alt=""></li>
                         </ul>
                     </div><!--.journal__entry-thumbs-->
                 </div><!--.journal__entry-->
