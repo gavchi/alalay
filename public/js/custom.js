@@ -19,7 +19,7 @@ function historyJS(){
         },{
             duration: 1500,
             queue: true,
-            easing: 'easeInOutBack',
+            easing: 'easeInOutCubic',
             start: function(){
                 var submenu = sidebar.find('.nav__menu').next();
                 submenu.animate({
@@ -57,7 +57,7 @@ function historyJS(){
                         },{
                             duration: 1000,
                             queue: true,
-                            easing: 'easeOutCirc',
+                            easing: 'easeInOutCubic',
                             start: function(){
                                 $('.nav__menu a').parent().removeClass('active');
                                 //$('.nav__menu').nextAll().remove();
