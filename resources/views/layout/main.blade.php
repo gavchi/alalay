@@ -5,7 +5,7 @@
     <title>Алалай!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" media="screen" href="/css/jquery.jscrollpane.css">
-    <link rel="stylesheet" media="screen" href="/style.css">
+    <link rel="stylesheet" media="screen" href="/style.css?{{config('app.version')}}">
 </head>
 
 <body>
@@ -115,8 +115,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyABJQBZV_AyH7jw9qD-46wLXLqmbitRobw"></script>
 <script src="/js/jquery.textfill.min.js"></script>
 <script src="/js/bootstrap.modal.min.js"></script>
-<script src="/js/design.js"></script>
-<script src="/js/custom.js"></script>
+<script src="/js/design.js?{{config('app.version')}}"></script>
+<script src="/js/custom.js?{{config('app.version')}}"></script>
 
 </body>
 </html>
