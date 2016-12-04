@@ -86,18 +86,18 @@
 
             <div class="mobile_menu__nav">
                 <ul class="list-unstyled">
-                    <li><a href="about.html">Кто мы</a></li>
-                    <li><a href="portfolio.html">Портфолио</a></li>
-                    <li><a href="journal.html">Журнал</a></li>
-                    <li><a href="contacts.html">Контакты</a></li>
+                    <li @if('about' === $link) class="active" @endif><a href="{{action('MainController@getAbout')}}" data-link="about">Кто мы</a></li>
+                    <li @if('portfolio' === $link) class="active" @endif><a href="{{action('MainController@getPortfolio')}}" data-link="portfolio">Портфолио</a></li>
+                    <li @if('news' === $link) class="active" @endif><a href="{{action('MainController@getNews')}}" data-link="news">Журнал</a></li>
+                    <li @if('contacts' === $link) class="active" @endif><a href="{{action('MainController@getContacts')}}" data-link="contacts">Контакты</a></li>
                 </ul>
             </div><!--.mobile_menu__nav-->
 
             <div class="contacts__social">
                 <ul class="list-unstyled">
-                    <li class="fb"><a href="#">Facebook</a></li>
-                    <li class="vk"><a href="#">ВКонтакте</a></li>
-                    <li class="in"><a href="#">Instagram</a></li>
+                    <li class="fb"><a href="https://www.facebook.com/alalay.agency" target="_blank">Facebook</a></li>
+                    <li class="vk"><a href="https://vk.com/alalay_agency" target="_blank">ВКонтакте</a></li>
+                    <li class="in"><a href="https://www.instagram.com/alalay_agency/" target="_blank">Instagram</a></li>
                 </ul>
             </div><!--.contacts__social-->
 
