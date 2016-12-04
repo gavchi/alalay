@@ -7,7 +7,7 @@
 
             <div class="page_box__title hidden-xs">
                 <div class="page_box__title-title">
-                    <img src="images/txt-contacts.png" alt="Контакты">
+                    <img src="/images/txt-contacts.png" alt="Контакты">
                 </div>
                 <h5>позвони нам,<br> позвони</h5>
                 <p></p>
@@ -47,9 +47,9 @@
 
             <div class="contacts__social">
                 <ul class="list-unstyled">
-                    <li class="fb"><a href="#">Facebook</a></li>
-                    <li class="vk"><a href="#">ВКонтакте</a></li>
-                    <li class="in"><a href="#">Instagram</a></li>
+                    <li class="fb"><a href="https://www.facebook.com/alalay.agency" target="_blank">Facebook</a></li>
+                    <li class="vk"><a href="https://vk.com/alalay_agency" target="_blank">ВКонтакте</a></li>
+                    <li class="in"><a href="https://www.instagram.com/alalay_agency/" target="_blank">Instagram</a></li>
                 </ul>
             </div><!--.contacts__social-->
 
