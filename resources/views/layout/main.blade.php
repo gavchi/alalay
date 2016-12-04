@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" media="screen" href="/css/jquery.jscrollpane.css">
     <link rel="stylesheet" media="screen" href="/style.css?{{config('app.version')}}">
+    <link rel="stylesheet" media="screen" href="/css/custom.css?{{config('app.version')}}">
 </head>
 
-<body>
+<body @if($isMobile) class="bg-grey-mob" isMobile @endif>
 
 <div class="mobile_top">
     <div class="mobile_top__logo">

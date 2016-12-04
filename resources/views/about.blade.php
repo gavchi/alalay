@@ -26,7 +26,7 @@
         </div><!--.page_box__body-->
 
         <div class="more_box visible-xs">
-            <a href="clients.html" class="btn btn-red">Клиенты</a>
+            <a href="/clients" class="btn btn-red">Клиенты</a>
         </div><!--.more_box-->
 
     </div><!--.about-->

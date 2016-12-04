@@ -1,0 +1,13 @@
+.main_acc__box .mob_info__title,
+.main_acc__box .mob_info__txt{
+    margin: 50px auto;
+}
+.bg-grey-mob .main_acc__in,
+.bg-grey-mob .main_acc__coub{
+    position: relative;
+}
+.mobile_coub_block{
+    position: absolute;
+    top: 0;
+    opacity:0;
+}

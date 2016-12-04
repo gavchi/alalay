@@ -164,7 +164,7 @@ $(document).ready(function() {
 			var main_acc_in = (win_height - menu_height) / 3;
 
 			$('.main_acc__box').height(main_acc_in);
-
+/*
 			$('.main_acc__box1').click(function(){
 				window.location.href='design.html';
 			});
@@ -176,7 +176,7 @@ $(document).ready(function() {
 			$('.main_acc__box3').click(function(){
 				window.location.href='production.html';
 			});
-
+*/
 		}
 
 	}

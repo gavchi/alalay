@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Work;
 use Illuminate\Http\Request;
+use Jenssegers\Agent\Agent;
 
 use App\Http\Requests;
 
@@ -16,15 +17,19 @@ class MainController extends Controller
     }
 
     private function _getPage($page, $variables=[]){
+
+        $agent = new Agent();
         $link = config('link.'.$page);
         $submenu = view('layout.submenu')
             ->with('link', $page)
             ->render();
+        $isMobile = $agent->isMobile() ? true : false;
         return $this->request->isXmlHttpRequest() ?
             response()->json([
                 'html' => view($page, array_merge([
                     'empty' => true,
                     'link' => $link,
+                    'isMobile' => $isMobile,
                 ], $variables))
                     ->render(),
                 'link' => $link,
@@ -33,6 +38,7 @@ class MainController extends Controller
             view($page, array_merge([
                 'empty' => false,
                 'link' => $page,
+                'isMobile' => $isMobile,
             ], $variables));
     }
 /*

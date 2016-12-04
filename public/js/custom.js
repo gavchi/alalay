@@ -126,10 +126,12 @@ function historyJS(){
         History.pushState(null, $(this).data('title') ? $(this).data('title') : $(this).text(), $(this).attr('href'));
     });
     //Portfolio
-    $('section.content').on('click','a.portfolio__item',function(e) {
-        e.preventDefault();
-        History.pushState(null, $(this).data('title') ? $(this).data('title') : $(this).text(), $(this).attr('href'));
-    });
+    if(!$('body').hasClass('bg-grey-mob')){
+        $('section.content').on('click','a.portfolio__item',function(e) {
+            e.preventDefault();
+            History.pushState(null, $(this).data('title') ? $(this).data('title') : $(this).text(), $(this).attr('href'));
+        });
+    }
 }
 
 // Fit title text
@@ -270,8 +272,237 @@ function sendEmail(){
     });
 }
 
+function redeclareDesign(){
+    //Block 1 Animate
+    $('body.bg-grey-mob').on('click', '.main_acc__box1.toggleOut', function(e){
+        e.preventDefault();
+        var container = $(this);
+        var fullHeight = 0;
+        container.children('.mobile_coub_block').each(function(){
+            fullHeight += $(this).height();
+        });
+        container.data('height', container.height());
+        container.animate({
+            top: container.parent(),
+            height: fullHeight
+        },{
+            start: function(){
+                container.find('.main_acc__in, .main_acc__coub').animate({
+                    top: -400,
+                    opacity: 0
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+                container.find('.mobile_coub_block').animate({
+                    opacity: 1
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+            },
+            complete: function(){
+                container.addClass('toggleIn');
+                container.removeClass('toggleOut');
+            }
+        });
+    });
+    $('body.bg-grey-mob').on('click', '.main_acc__box1.toggleIn', function(e){
+        e.preventDefault();
+        if('A' == e.target.nodeName){
+            location.href = e.target.href;
+        }
+        var container = $(this);
+        container.animate({
+            top: container.parent(),
+            height: container.data('height')
+        },{
+            start: function(){
+                container.find('.main_acc__in, .main_acc__coub').animate({
+                    top: 0,
+                    opacity: 1
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+                container.find('.mobile_coub_block').animate({
+                    opacity: 0
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+            },
+            complete: function(){
+                container.data('height', container.height());
+                container.addClass('toggleOut');
+                container.removeClass('toggleIn');
+            }
+        });
+    });
+
+    //Block 2 Animate
+    $('body.bg-grey-mob').on('click', '.main_acc__box2.toggleOut', function(e){
+        e.preventDefault();
+        var container = $(this);
+        var fullHeight = 0;
+        container.children('.mobile_coub_block').each(function(){
+            fullHeight += $(this).height();
+        });
+        container.data('height', container.height());
+        container.animate({
+            //top: 0 - container.data('height'),
+            height: fullHeight
+        },{
+            start: function(){
+                container.css('position', 'relative');
+                $('html, body').animate({
+                    scrollTop: container.offset().top
+                }, 1000);
+                container.find('.main_acc__in, .main_acc__coub').animate({
+                    top: -400,
+                    opacity: 0
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+                container.find('.mobile_coub_block').animate({
+                    opacity: 1
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+            },
+            complete: function(){
+                container.addClass('toggleIn');
+                container.removeClass('toggleOut');
+            }
+        });
+    });
+    $('body.bg-grey-mob').on('click', '.main_acc__box2.toggleIn', function(e){
+        e.preventDefault();
+        if('A' == e.target.nodeName){
+            location.href = e.target.href;
+        }
+        var container = $(this);
+        container.animate({
+            //top: 0,
+            height: container.data('height')
+        },{
+            start: function(){
+                $('html, body').animate({
+                    scrollTop: container.offset().top
+                }, 1000);
+                container.find('.main_acc__in, .main_acc__coub').animate({
+                    top: 0,
+                    opacity: 1
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+                container.find('.mobile_coub_block').animate({
+                    opacity: 0
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+            },
+            complete: function(){
+                container.data('height', container.height());
+                container.addClass('toggleOut');
+                container.removeClass('toggleIn');
+            }
+        });
+    });
+
+    //Block 3 Animate
+    $('body.bg-grey-mob').on('click', '.main_acc__box3.toggleOut', function(e){
+        e.preventDefault();
+        var container = $(this);
+        var fullHeight = 0;
+        container.children('.mobile_coub_block').each(function(){
+            fullHeight += $(this).height();
+        });
+        container.data('height', container.height());
+        container.animate({
+            //top: 0 - 2*container.data('height'),
+            height: fullHeight
+        },{
+            start: function(){
+                container.css('position', 'relative');
+                container.css('position', 'relative');
+                $('html, body').animate({
+                    scrollTop: container.offset().top
+                }, 1000);
+                container.find('.main_acc__in, .main_acc__coub').animate({
+                    top: -400,
+                    opacity: 0
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+                container.find('.mobile_coub_block').animate({
+                    opacity: 1
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+            },
+            complete: function(){
+                container.addClass('toggleIn');
+                container.removeClass('toggleOut');
+            }
+        });
+    });
+    $('body.bg-grey-mob').on('click', '.main_acc__box3.toggleIn', function(e){
+        e.preventDefault();
+        if('A' == e.target.nodeName){
+            location.href = e.target.href;
+        }
+        var container = $(this);
+        container.animate({
+            //top: 0,
+            height: container.data('height')
+        },{
+            start: function(){
+                $('html, body').animate({
+                    scrollTop: container.offset().top
+                }, 1000);
+                container.find('.main_acc__in, .main_acc__coub').animate({
+                    top: 0,
+                    opacity: 1
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+                container.find('.mobile_coub_block').animate({
+                    opacity: 0
+                },{
+                    duration: 1000,
+                    queue: true
+                });
+            },
+            complete: function(){
+                container.data('height', container.height());
+                container.addClass('toggleOut');
+                container.removeClass('toggleIn');
+            }
+        });
+    });
+/*
+    $('.main_acc__box2').click(function(e){
+        e.preventDefault();
+        //window.location.href='/digital';
+    });
+
+    $('.main_acc__box3').click(function(e){
+        e.preventDefault();
+        //window.location.href='/production';
+    });*/
+}
+
 $(function() {
     //fitTitleText();
     historyJS();
+    redeclareDesign();
     sendEmail();
 });
