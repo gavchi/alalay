@@ -356,7 +356,7 @@ function redeclareDesign(){
             start: function(){
                 container.css('position', 'relative');
                 $('html, body').animate({
-                    scrollTop: container.offset().top
+                    scrollTop: container.offset().top - 60
                 }, 1000);
                 container.find('.main_acc__in, .main_acc__coub').animate({
                     top: -400,

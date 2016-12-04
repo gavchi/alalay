@@ -1,6 +1,8 @@
 .main_acc__box .mob_info__title,
 .main_acc__box .mob_info__txt{
-    margin: 50px auto;
+    padding: 0 15%;
+    width: 100%;
+    max-width: none;
 }
 .bg-grey-mob .main_acc__in,
 .bg-grey-mob .main_acc__coub{
@@ -10,4 +12,10 @@
     position: absolute;
     top: 0;
     opacity:0;
+    width: 100%;
+}
+.bg-grey-mob .main_acc__box3 .mob_info__title h1{
+    font-weight: 400;
+    font-size: 39px;
+    letter-spacing: -1.5px;
 }
