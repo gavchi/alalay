@@ -9,7 +9,7 @@
                     <div class="main_acc__title">
                         <span>трогни<br> чтобы познать</span>
                         <div class="main_acc__title-img">
-                            <img src="images/txt-design.png" alt="Design">
+                            <img src="/images/txt-design.png" alt="Design">
                         </div>
                         <p>branding<br> &amp;graphics</p>
                     </div><!--.main_acc__title-->
