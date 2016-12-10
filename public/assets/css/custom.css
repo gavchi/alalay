@@ -1,0 +1,25 @@
+div.dataTables_info{
+    padding-top: 0;
+    margin: 5px 0;
+}
+.panel-body .pagination{
+    margin: 5px 0;
+    float: right;
+}
+#checkModal .list-group{
+    height: 400px;
+    overflow: auto;
+    width: 90%;
+}
+#checkModal .additionalCheckInfo.list-group{
+    width: auto;
+}
+.viewerCheck{
+    height: 600px;
+}
+
+@media (min-width: 992px) {
+    .modal-lg {
+        width: 80%;
+    }
+}
