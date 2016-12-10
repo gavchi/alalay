@@ -30,6 +30,8 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/home';
 
+    protected $registerView = 'auth.login';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -68,5 +70,10 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        return redirect('/');
     }
 }
