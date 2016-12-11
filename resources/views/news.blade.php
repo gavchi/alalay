@@ -6,9 +6,7 @@
         <div class="page_box__side">
 
             <div class="page_box__title">
-                <div class="page_box__title-title">
-                    <img src="images/txt-journal.png" alt="ЖУРНАЛ">
-                </div>
+                <h3>Журнал</h3>
                 <h5>то, сё, пятое, десятое</h5>
                 <p>Жизнь рекламного агентства - это целая череда ярких и интересных событий, многие из которых остаются за кадром  официальных новостей и громких проектов. Всё это мы собрали здесь в нашем журнале.</p>
             </div><!--.page_box__title-->
@@ -19,27 +17,37 @@
 
             <div class="journal__entries scroller">
 
+                @foreach($News as $Item)
                 <div class="journal__entry">
                     <div class="journal__entry-title">
-                        <h3>Привет, меня зовут Алалай!</h3>
+                        <h3>{!! nl2br($Item->title) !!}</h3>
                     </div><!--.journal__entry-title-->
 
+                    @if(trim($Item->description))
                     <div class="journal__entry-body">
-                        <p>Добро пожаловать на новый сайт агентства Алалай! Скоро мы поделимся с вами нашими новостями.</p>
+                        <p>{!! nl2br($Item->description) !!}</p>
                     </div><!--.journal__entry-body-->
+                    @endif
 
+                    @if(count($Item->tags))
                     <div class="journal__entry-tags">
                         <ul class="list-unstyle">
-                            <li><a href="#">#алалай</a></li>
+                            @foreach($Item->tags as $Tag)
+                            <li><a href="#">#{{$Tag->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div><!--.journal__entry-tags-->
+                    @endif
 
+                    @if($Item->image)
                     <div class="journal__entry-thumbs">
                         <ul>
-                            <li><img src="/images/Newalalay.jpg" alt=""></li>
+                            <li><img src="{{asset(config('image.path.news').$Item->image)}}" alt=""></li>
                         </ul>
                     </div><!--.journal__entry-thumbs-->
+                    @endif
                 </div><!--.journal__entry-->
+                @endforeach
 {{--
 
                 <div class="journal__entry">

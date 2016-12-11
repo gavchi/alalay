@@ -6,7 +6,7 @@
         <div class="page_box__side clients__side">
 
             <div class="page_box__title">
-                <h3><span>{{$Work->title}}</span></h3>
+                <h3>{{$Work->title}}</h3>
                 <h5>{{$Work->work_type}}</h5>
                 <p>{{$Work->description}}</p>
             </div><!--.page_box__title-->

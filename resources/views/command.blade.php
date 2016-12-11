@@ -1,15 +1,13 @@
 @extends('layout.'.(!$empty ? 'main' : 'empty'), ['link' => $link])
 
 @section('content')
-    <div class="page_box clients">
+    <div class="page_box command">
 
         <div class="page_box__side clients__side">
 
             <div class="page_box__title">
-                <div class="page_box__title-title">
-                    <img src="/images/txt-clients.png" alt="Клиенты">
-                </div>
-                <h5>взаимная любовь</h5>
+                <h3>КОМАНДА</h3>
+                <h5>лицом к лицу</h5>
                 <p></p>
             </div><!--.page_box__title-->
 
@@ -17,19 +15,24 @@
 
         <div class="page_box__body">
 
-            <div class="page_box__list clients__list scroller">
+            <div class="page_box__list command__list scroller">
 
                 <ul class="list-unstyled">
-                    <li><a href="#"><img src="/images/clients/tinkoff.jpg" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/gazprom.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/subway.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/metro.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/cummins.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/solid.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/ikoraf.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/sabre.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/major.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/beloil.png" alt=""></a></li>
+                    @foreach($Members as $Member)
+                    <li>
+                        <div class="thumb">
+                            <img src="{{asset(config('image.path.member').$Member->image)}}" alt="{{$Member->name}}">
+                        </div>
+
+                        <div class="info">
+                            <div class="info__in">
+                                <h4>{{$Member->name}}</h4>
+                                <p>{{$Member->post}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    @endforeach
+
                 </ul>
 
             </div><!--.clients__list-->
@@ -37,7 +40,8 @@
         </div><!--.page_box__body-->
 
         <div class="more_box visible-xs">
-            <a href="/about" class="btn btn-red">Об агентстве</a>
+            <a href="/about." class="btn btn-red">Об агентстве</a><br>
+            <a href="/clients" class="btn btn-red">Клиенты</a>
         </div><!--.more_box-->
 
     </div><!--.clients-->

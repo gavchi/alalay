@@ -28,6 +28,8 @@
 
     <nav class="sidebar__nav">
 
+        @include('layout.submenu', ['link' => $link])
+
         <div class="nav__menu">
             <ul class="list-unstyle">
                 <li @if('about' === $link) class="active" @endif><a href="{{action('MainController@getAbout')}}" data-link="about">Кто мы</a></li>
@@ -36,8 +38,6 @@
                 <li @if('contacts' === $link) class="active" @endif><a href="{{action('MainController@getContacts')}}" data-link="contacts">Контакты</a></li>
             </ul>
         </div><!--.nav__menu-->
-
-        @include('layout.submenu', ['link' => $link])
 
     </nav><!--.sidebar__nav-->
 

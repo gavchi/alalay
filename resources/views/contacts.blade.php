@@ -6,9 +6,7 @@
         <div class="page_box__side">
 
             <div class="page_box__title hidden-xs">
-                <div class="page_box__title-title">
-                    <img src="/images/txt-contacts.png" alt="Контакты">
-                </div>
+                <h3>Контакты</h3>
                 <h5>позвони нам,<br> позвони</h5>
                 <p></p>
             </div><!--.page_box__title-->

@@ -21,7 +21,7 @@ function historyJS(){
             queue: true,
             easing: 'easeInOutCubic',
             start: function(){
-                var submenu = sidebar.find('.nav__menu').next();
+                var submenu = sidebar.find('.nav__menu').prev();
                 submenu.animate({
                     top: 0-window.innerHeight
                 },{
@@ -53,7 +53,7 @@ function historyJS(){
                         container.html();
                         container.html(outJSON.html);
 
-                        fitTitleText();
+                        //fitTitleText();
                         scrollerInit();
                         main_accInit();
                         mapInit();
@@ -68,9 +68,9 @@ function historyJS(){
                                 $('.nav__menu a').parent().removeClass('active');
                                 //$('.nav__menu').nextAll().remove();
 
-                                sidebar.find('.nav__menu').after($(outJSON.submenu).css('top', -700));
+                                sidebar.find('.nav__menu').before($(outJSON.submenu).css('top', -700));
                                 sidebar.find('a[data-link="'+outJSON.link+'"]').parent().addClass('active');
-                                var submenu = sidebar.find('.nav__menu').next();
+                                var submenu = sidebar.find('.nav__menu').prev();
                                 submenu.animate({
                                     top: 0
                                 },{
@@ -135,7 +135,7 @@ function historyJS(){
 }
 
 // Fit title text
-function fitTitleText(){
+/*function fitTitleText(){
     if($('.page_box__title h3').length) {
         setTimeout(function(){
             $('.page_box__title h3').textfill();
@@ -145,13 +145,52 @@ function fitTitleText(){
             $('.page_box__title h3').textfill();
         });
     }
-}
+}*/
 
 // Scroller
 function scrollerInit(){
-    if($('.scroller').length) {
-        $('.scroller').jScrollPane({
-            autoReinitialise: true,
+    var scroller = $('.scroller');
+
+    if(scroller.length) {
+
+        function scr_init() {
+
+            if($(window).width() <= 767) {
+                $('.scroller').each(function() {
+                    var api = $(this).data('jsp');
+
+                    if($(this).hasClass('jspScrollable')) {
+                        api.destroy();
+                    }
+                });
+            } else {
+                var apis = [];
+
+                $('.scroller').each(
+                    function() {
+                        apis.push($(this).jScrollPane({
+                            autoReinitialise: true,
+                        }).data().jsp);
+                    }
+                )
+
+                $('.scroll_bt').hide();
+                $('.scroller').bind('jsp-initialised', function(event, isScrollable) {
+                    if(isScrollable) {
+                        $('.scroll_bt').fadeIn(250);
+                    } else {
+                        $('.scroll_bt').hide();
+                    }
+
+                });
+
+            }
+        }
+
+        scr_init();
+
+        $(window).resize(function(){
+            scr_init();
         });
     }
 }
@@ -170,18 +209,20 @@ function main_accInit(){
 
                     acc_width = $('.main_acc').width();
                     acc_content = $('.content').width();
-                    acc_width_side = acc_width / 3;
+                    acc_width_side = Math.round(acc_width / 3);
 
                     acc_2line = $('.main_acc__box2 .main_acc__title-img img').offset().top;
                     acc_2line_h = $('.main_acc__box2 .main_acc__title-img img').height();
                     acc_2line_pos = acc_2line + acc_2line_h - acc_2line_h - 1;
+                    acc_2line_pos = Math.round(acc_2line_pos);
 
                     $('.main_acc__box3 .main_acc__line').css({top: acc_2line_pos, height: acc_2line_h});
                     $('.main_acc__in').width(acc_content - 19);
                     $('.main_acc__side').width(acc_width_side);
 
                     // Coubs
-                    coub1_offset = $('.main_acc__box1 .main_acc__title-img img').offset().top - 18;
+                    coub1_offset = $('.main_acc__box1 .main_acc__title-img img').offset().top - 17;
+                    coub1_offset = Math.round(coub1_offset);
                     $('.main_acc__coub1').css({top: coub1_offset});
 
                     coub2_offset = $('.main_acc__box2 .main_acc__title-img img').offset().top + acc_2line_h - 2;

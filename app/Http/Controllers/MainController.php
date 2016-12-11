@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
+use App\Member;
+use App\News;
 use App\Work;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
@@ -66,11 +69,17 @@ class MainController extends Controller
     }
 
     public function getCommand(){
-        return $this->_getPage('command');
+        $Members = Member::all();
+        return $this->_getPage('command', [
+            'Members' => $Members,
+        ]);
     }
 
     public function getClients(){
-        return $this->_getPage('clients');
+        $Clients = Client::all();
+        return $this->_getPage('clients', [
+            'Clients' => $Clients,
+        ]);
     }
 
     public function getPortfolio(){
@@ -91,7 +100,10 @@ class MainController extends Controller
     }
 
     public function getNews(){
-        return $this->_getPage('news');
+        $News = News::with('tags')->get();
+        return $this->_getPage('news', [
+            'News' => $News,
+        ]);
     }
 
     public function getContacts(){

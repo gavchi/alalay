@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Work extends Model
+class Tag extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 }

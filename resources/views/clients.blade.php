@@ -6,12 +6,14 @@
         <div class="page_box__side clients__side">
 
             <div class="page_box__title">
-                <div class="page_box__title-title">
-                    <img src="/images/txt-clients.png" alt="Клиенты">
-                </div>
+                <h3>Клиенты</h3>
                 <h5>взаимная любовь</h5>
                 <p></p>
             </div><!--.page_box__title-->
+
+            <div class="scroll_bt scroll_bt_mb5">
+                <span>крути вниз</span>
+            </div><!--.scroll_bt-->
 
         </div><!--.page_box__side-->
 
@@ -20,16 +22,9 @@
             <div class="page_box__list clients__list scroller">
 
                 <ul class="list-unstyled">
-                    <li><a href="#"><img src="/images/clients/tinkoff.jpg" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/gazprom.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/subway.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/metro.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/cummins.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/solid.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/ikoraf.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/sabre.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/major.png" alt=""></a></li>
-                    <li><a href="#"><img src="/images/clients/beloil.png" alt=""></a></li>
+                    @foreach($Clients as $Client)
+                    <li>><img src="{{asset(config('image.path.client').$Client->image)}}" alt="{{$Client->title}}"></li>
+                    @endforeach
                 </ul>
 
             </div><!--.clients__list-->

@@ -19,6 +19,8 @@
     <link href="/assets/css/style.min.css" rel="stylesheet" />
     <link href="/assets/css/style-responsive.min.css" rel="stylesheet" />
     <link href="/assets/plugins/iviewer/jquery.iviewer.css" rel="stylesheet" />
+    <link href="/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="/assets/plugins/jquery-tag-it/css/jquery.tagit.css" rel="stylesheet" />
     <link href="/assets/css/theme/red.css" rel="stylesheet" id="theme" data-theme="red"/>
     <!-- ================== END BASE CSS STYLE ================== -->
 
@@ -69,7 +71,7 @@
                 <li><a href="/admin/clients"><i class="fa fa-child"></i> <span>Клиенты</span></a></li>
                 <li><a href="/admin/works"><i class="fa fa-briefcase"></i> <span>Портфолио</span></a></li>
                 <li><a href="/admin/news"><i class="fa fa-bullhorn"></i> <span>Новости</span></a></li>
-                <li><a href="/admin/news"><i class="fa fa-users"></i> <span>Команда</span></a></li>
+                <li><a href="/admin/members"><i class="fa fa-users"></i> <span>Команда</span></a></li>
                 <!-- begin sidebar minify button -->
                 <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
                 <!-- end sidebar minify button -->
@@ -152,13 +154,28 @@
 <script src="/assets/plugins/gritter/js/jquery.gritter.js"></script>
 <script src="/assets/js/apps.min.js"></script>
 <script src="/assets/plugins/iviewer/jquery.iviewer.min.js"></script>
-<script src="/assets/js/checks.js"></script>
+<script src="/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
+<script src="/assets/plugins/jquery-tag-it/js/tag-it.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 
 <script>
     $(document).ready(function() {
         App.init();
         //Dashboard.init();
+
+        if($('[role="tags"]').length){
+            $('[role="tags"]').tagit({
+                fieldName: 'tags',
+                singleField: true,
+                autocomplete: {
+                    serviceUrl: '/admin/tags',
+                    dataType: 'json',
+                    minChars: 2,
+                    lookupLimit: 10
+                }
+            });
+        }
     });
 </script>
 </body>
