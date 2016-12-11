@@ -23,7 +23,7 @@
 
                 <ul class="list-unstyled">
                     @foreach($Clients as $Client)
-                    <li>><img src="{{asset(config('image.path.client').$Client->image)}}" alt="{{$Client->title}}"></li>
+                    <li><img src="{{asset(config('image.path.client').$Client->image)}}" alt="{{$Client->title}}"></li>
                     @endforeach
                 </ul>
 
