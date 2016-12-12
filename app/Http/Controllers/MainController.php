@@ -68,7 +68,7 @@ class MainController extends Controller
         return $this->_getPage('about');
     }
 
-    public function getCommand(){
+    public function getTeam(){
         $Members = Member::all();
         return $this->_getPage('command', [
             'Members' => $Members,

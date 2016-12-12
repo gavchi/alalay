@@ -6,7 +6,7 @@ $aboutSubmenu = [
         'text' => 'об агентстве'
     ],
     [
-        'link' => 'command',
+        'link' => 'team',
         'class' => 'ico4',
         'text' => 'команда'
     ],
