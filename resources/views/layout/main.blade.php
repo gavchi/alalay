@@ -10,7 +10,7 @@
 </head>
 
 <body @if($isMobile) class="bg-grey-mob" isMobile @endif>
-
+@if('production' == config('app.env')) @include('parts.counter') @endif
 <div class="mobile_top">
     <div class="mobile_top__logo">
         <a href="{{action('MainController@getIndex')}}"><img src="/images/logo3.png" alt="Алалай!"></a>
