@@ -315,7 +315,7 @@ function sendEmail(){
 
 function redeclareDesign(){
     //Block 1 Animate
-    $('body.bg-grey-mob').on('click', '.main_acc__box1.toggleOut', function(e){
+    $('body.bg-grey-mob').on('mousedown', '.main_acc__box1.toggleOut', function(e){
         e.preventDefault();
         var container = $(this);
         var fullHeight = 0;
@@ -348,7 +348,7 @@ function redeclareDesign(){
             }
         });
     });
-    $('body.bg-grey-mob').on('click', '.main_acc__box1.toggleIn', function(e){
+    $('body.bg-grey-mob').on('mousedown', '.main_acc__box1.toggleIn', function(e){
         e.preventDefault();
         if('A' == e.target.nodeName){
             location.href = e.target.href;
@@ -382,7 +382,7 @@ function redeclareDesign(){
     });
 
     //Block 2 Animate
-    $('body.bg-grey-mob').on('click', '.main_acc__box2.toggleOut', function(e){
+    $('body.bg-grey-mob').on('mousedown', '.main_acc__box2.toggleOut', function(e){
         e.preventDefault();
         var container = $(this);
         var fullHeight = 0;
@@ -419,7 +419,7 @@ function redeclareDesign(){
             }
         });
     });
-    $('body.bg-grey-mob').on('click', '.main_acc__box2.toggleIn', function(e){
+    $('body.bg-grey-mob').on('mousedown', '.main_acc__box2.toggleIn', function(e){
         e.preventDefault();
         if('A' == e.target.nodeName){
             location.href = e.target.href;
@@ -456,7 +456,7 @@ function redeclareDesign(){
     });
 
     //Block 3 Animate
-    $('body.bg-grey-mob').on('click', '.main_acc__box3.toggleOut', function(e){
+    $('body.bg-grey-mob').on('mousedown', '.main_acc__box3.toggleOut', function(e){
         e.preventDefault();
         var container = $(this);
         var fullHeight = 0;
@@ -494,7 +494,7 @@ function redeclareDesign(){
             }
         });
     });
-    $('body.bg-grey-mob').on('click', '.main_acc__box3.toggleIn', function(e){
+    $('body.bg-grey-mob').on('mousedown', '.main_acc__box3.toggleIn', function(e){
         e.preventDefault();
         if('A' == e.target.nodeName){
             location.href = e.target.href;
