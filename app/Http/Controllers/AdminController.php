@@ -109,7 +109,7 @@ class AdminController extends Controller
     }
 
     public function getAddWork(){
-        return view('admin.form.client');
+        return view('admin.form.work');
     }
 
     public function getEditWork($id){
