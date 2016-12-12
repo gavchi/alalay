@@ -19,3 +19,6 @@
     font-size: 39px;
     letter-spacing: -1.5px;
 }
+.command__list ul li .info p{
+    font-weight: bold;
+}
