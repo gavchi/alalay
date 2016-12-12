@@ -315,8 +315,9 @@ function sendEmail(){
 
 function redeclareDesign(){
     //Block 1 Animate
-    $('body.bg-grey-mob').on('mousedown', '.main_acc__box1.toggleOut', function(e){
+    $('body.bg-grey-mob').on('click', '.main_acc__box1.toggleOut', function(e){
         e.preventDefault();
+        $('body').css('overflow', 'hidden');
         var container = $(this);
         var fullHeight = 0;
         container.children('.mobile_coub_block').each(function(){
@@ -348,8 +349,9 @@ function redeclareDesign(){
             }
         });
     });
-    $('body.bg-grey-mob').on('mousedown', '.main_acc__box1.toggleIn', function(e){
+    $('body.bg-grey-mob').on('click', '.main_acc__box1.toggleIn', function(e){
         e.preventDefault();
+        $('body').css('overflow', 'auto');
         if('A' == e.target.nodeName){
             location.href = e.target.href;
         }
@@ -382,8 +384,9 @@ function redeclareDesign(){
     });
 
     //Block 2 Animate
-    $('body.bg-grey-mob').on('mousedown', '.main_acc__box2.toggleOut', function(e){
+    $('body.bg-grey-mob').on('click', '.main_acc__box2.toggleOut', function(e){
         e.preventDefault();
+        $('body').css('overflow', 'hidden');
         var container = $(this);
         var fullHeight = 0;
         container.children('.mobile_coub_block').each(function(){
@@ -419,8 +422,9 @@ function redeclareDesign(){
             }
         });
     });
-    $('body.bg-grey-mob').on('mousedown', '.main_acc__box2.toggleIn', function(e){
+    $('body.bg-grey-mob').on('click', '.main_acc__box2.toggleIn', function(e){
         e.preventDefault();
+        $('body').css('overflow', 'auto');
         if('A' == e.target.nodeName){
             location.href = e.target.href;
         }
@@ -456,8 +460,9 @@ function redeclareDesign(){
     });
 
     //Block 3 Animate
-    $('body.bg-grey-mob').on('mousedown', '.main_acc__box3.toggleOut', function(e){
+    $('body.bg-grey-mob').on('click', '.main_acc__box3.toggleOut', function(e){
         e.preventDefault();
+        $('body').css('overflow', 'hidden');
         var container = $(this);
         var fullHeight = 0;
         container.children('.mobile_coub_block').each(function(){
@@ -494,8 +499,9 @@ function redeclareDesign(){
             }
         });
     });
-    $('body.bg-grey-mob').on('mousedown', '.main_acc__box3.toggleIn', function(e){
+    $('body.bg-grey-mob').on('click', '.main_acc__box3.toggleIn', function(e){
         e.preventDefault();
+        $('body').css('overflow', 'auto');
         if('A' == e.target.nodeName){
             location.href = e.target.href;
         }
