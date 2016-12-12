@@ -14,7 +14,7 @@ class FeedbackController extends Controller
         Mail::send('emails.price', $data, function($message)
         {
             $message->from('no-reply@alalay.ru', 'Alalay No-reply');
-            $message->to('gavchi@gmail.com');
+            $message->to('alalay@alalay.ru');
         });
         return response()->json(['']);
     }
