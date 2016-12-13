@@ -176,6 +176,39 @@
                 }
             });
         }
+
+        if($('#sortable').length){
+            $('#sortable').sortable({
+                stop: function (event, ui)
+                {
+                    var order = [];
+                    $(this).find('tr').each(function () {
+                        order.push($(this).attr('order'));
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        data: {order: order},
+                        dataType: "json",
+                        url: '/admin/order-works',
+                        error: function(msg){
+                            alert( 'Error' );
+                        },
+                        success: function(result, status){
+                            console.log(result);
+                        }
+                    });
+                    console.log(order);
+                }
+            });
+        }
+
+        if($('[role="changeMask"]').length){
+            $('[role="changeMask"]').change(function(a, b){
+                $('.portfolio__item').removeClass('mask1 mask2 mask3 mask4 mask5 mask6 mask7 mask8 mask9 mask10 ');
+                $('.portfolio__item').addClass('mask'+$(this).val());
+            });
+        }
     });
 </script>
 </body>

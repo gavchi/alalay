@@ -10,7 +10,7 @@
         </div>
         <div class="panel-body">
             <a href="{{action('AdminController@getAddClient')}}" class="btn btn-success">Добавить</a>
-            {{$Works->links()}}
+            {{--$Works->links()--}}
             <table id="data-table" class="table table-bordered nowrap" width="100%">
                 <thead>
                 <tr>
@@ -21,26 +21,26 @@
                     <th>Картинка</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="sortable">
                 @foreach($Works as $Work)
-                    <tr>
-                        <td>
+                    <tr order="{{$Work->id}}">
+                        <td class="work_panel">
                             <a href="{{action('AdminController@getEditWork', $Work->id)}}" class="btn btn-warning btn-lg"><i class="fa fa-pencil"></i> </a>
                             <a href="{{action('AdminController@getDeleteWork', $Work->id)}}" class="btn btn-danger btn-lg"><i class="fa fa-times"></i> </a>
                         </td>
-                        <td>{{$Work->title}}</td>
-                        <td>{{$Work->work_type}}</td>
-                        <td>{{$Work->description}}</td>
-                        <td>
+                        <td class="work_title">{{$Work->title}}</td>
+                        <td class="work_type">{{$Work->work_type}}</td>
+                        <td class="work_description">{{$Work->description}}</td>
+                        <td class="work_image">
                             <a href="{{asset(config('image.path.work.main').$Work->image)}}" target="_blank">
-                                <img src="{{asset(config('image.path.work.logo').$Work->logo)}}" width="300">
+                                <img src="{{asset(config('image.path.work.logo').$Work->logo)}}" width="150">
                             </a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            {{$Works->links()}}
+            {{--$Works->links()--}}
         </div>
     </div>
 @stop

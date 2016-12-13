@@ -35,6 +35,29 @@
                         <input type="file" class="form-control" name="logo">
                     </div>
                 </div>
+                @if(isset($Work) && $Work)
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Текущий вид лого</label>
+                    <div class="col-md-9" style="width: 300px">
+                        <a href="{{asset(config('image.path.work.main').$Work->image)}}" target="_blank" class="portfolio__item @if($Work->mask){{$Work->mask->name}}@endif text-white">
+                            <div class="portfolio__img">
+                                <img src="{{asset(config('image.path.work.logo').$Work->logo)}}" alt="{{$Work->title}}">
+                            </div><!--.portfolio__img-->
+                        </a><!--.portfolio__item-->
+                    </div>
+                </div>
+                @endif
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Маска</label>
+                    <div class="col-md-9">
+                        <select class="form-control" name="mask" role="changeMask">
+                            <option value="" @if(is_null($Work->mask)) selected @endif>Нет</option>
+                            @foreach($Masks as $Masks)
+                            <option value="{{$Masks->id}}" @if($Work->mask && $Work->mask->id === $Masks->id) selected @endif>{{$Masks->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-md-3 control-label">Детально</label>
                     <div class="col-md-9">

@@ -18,6 +18,6 @@ $aboutSubmenu = [
 ];
 return [
     'about' => $aboutSubmenu,
-    'command' => $aboutSubmenu,
+    'team' => $aboutSubmenu,
     'clients' => $aboutSubmenu
 ];

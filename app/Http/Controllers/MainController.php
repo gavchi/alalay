@@ -70,7 +70,7 @@ class MainController extends Controller
 
     public function getTeam(){
         $Members = Member::all();
-        return $this->_getPage('command', [
+        return $this->_getPage('team', [
             'Members' => $Members,
         ]);
     }
@@ -83,7 +83,7 @@ class MainController extends Controller
     }
 
     public function getPortfolio(){
-        $Works = Work::all()->toArray();
+        $Works = Work::with('mask')->orderBy('order', 'ASC')->orderBy('id', 'DESC')->get()->toArray();
         $firstItems = array_slice($Works, 0, count($Works)/2);
         $secondItems = array_slice($Works, count($Works)/2 + 1);
         return $this->_getPage('portfolio',[

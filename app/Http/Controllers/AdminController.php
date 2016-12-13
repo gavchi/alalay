@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Mask;
 use App\Member;
 use App\News;
 use App\Tag;
@@ -103,7 +104,7 @@ class AdminController extends Controller
      * Works
      * */
     public function getWorks(){
-        $Works = Work::paginate();
+        $Works = Work::orderBy('order', 'ASC')->orderBy('id', 'DESC')->get();
         return view('admin.works')
             ->with('Works', $Works);
     }
@@ -113,16 +114,28 @@ class AdminController extends Controller
     }
 
     public function getEditWork($id){
-        $Work = Work::find($id);
+        $Work = Work::with('mask')->find($id);
+        $Masks = Mask::all();
         return view('admin.form.work')
-            ->with('Work', $Work);
+            ->with('Work', $Work)
+            ->with('Masks', $Masks);
+    }
+
+    public function anyOrderWorks(Request $request){
+        $order = $request->get('order');
+        $Works = Work::orderBy('order', 'ASC')->orderBy('id', 'DESC')->get();
+        foreach($order as $key => $id){
+            $Works->find($id)->update(['order' => $key]);
+        }
+        return response()->json(['success' => true]);
     }
 
     public function postEditWork(Request $request, $id = null){
         $rules = [
             'title' => 'required|max:255',
             'work_type' => 'required|max:255',
-            'description' => 'required'
+            'description' => 'required',
+            'mask' => 'required'
         ];
         if(is_null($id)){
             $rules = array_merge($rules, [
@@ -181,6 +194,10 @@ class AdminController extends Controller
         $Work->title = $request->get('title');
         $Work->work_type = $request->get('work_type');
         $Work->description = $request->get('description');
+        $Work->save();
+
+        $Mask = Mask::find($request->get('mask'));
+        $Work->mask()->associate($Mask);
         $Work->save();
         return redirect()->action('AdminController@getWorks');
     }

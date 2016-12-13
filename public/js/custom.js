@@ -17,7 +17,7 @@ function historyJS(){
         container.animate({
             left: container.width()
         },{
-            duration: 1500,
+            duration: 1000,
             queue: true,
             easing: 'easeInOutCubic',
             start: function(){
@@ -84,33 +84,6 @@ function historyJS(){
                 }, 100);
             }
         });
-        //$('section.content').load(State.url);
-        // Instead of the line above, you could run the code below if the url returns the whole page instead of just the content (assuming it has a `#content`):
-        /*$.ajax({
-            type: "GET",
-            async: false,
-            dataType: "json",
-            url: State.url,
-            error: function(msg){
-                alert( 'Error' );
-            },
-            success: function(result, status){
-                $('section.content').html(result.html);
-                $('.nav__menu a').parent().removeClass('active');
-                $('.nav__menu').nextAll().remove();
-                $('.nav__menu').after(result.submenu);
-                fitTitleText();
-                scrollerInit();
-                main_accInit();
-                mapInit();
-            }
-        });*/
-        /*
-         $.get(State.url, function(response) {
-             console.log(response);
-             $('section.content').html(response);
-             fitTitleText();
-         });*/
 
     });
 /*
@@ -314,6 +287,7 @@ function sendEmail(){
 }
 
 function redeclareDesign(){
+    //Main mobile animation start
     //Block 1 Animate
     $('body.bg-grey-mob').on('click', '.main_acc__box1.toggleOut', function(e){
         e.preventDefault();
@@ -535,6 +509,9 @@ function redeclareDesign(){
             }
         });
     });
+
+    //Main mobile animation end
+
 /*
     $('.main_acc__box2').click(function(e){
         e.preventDefault();
