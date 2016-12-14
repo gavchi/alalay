@@ -981,7 +981,7 @@ body {
 		
 		width: 100%;
 		height: auto;
-		padding: 0 15px 20px 15px;
+		padding: 0 15px 35px 15px;
 	}
 
 	.main_acc__txt {
@@ -997,6 +997,10 @@ body {
 		    -ms-transform: none;
 		     -o-transform: none;
 		        transform: none;
+	}
+
+	.main_acc__txt p {
+		margin-bottom: 20px;
 	}
 
 	.main_acc__left {
