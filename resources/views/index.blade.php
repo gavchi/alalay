@@ -36,10 +36,6 @@
             <div class="main_acc__coub main_acc__coub2"></div>
             @if($isMobile)
                 <div class="mobile_coub_block">
-                    <div class="mob_info__title">
-                        <h1>Design</h1>
-                        <p>branding &amp; graphics</p>
-                    </div><!--.mob_info__title-->
 
                     <div class="mob_info__txt">
                         <p><span class="sel sel_g">Мы любим графический</span> дизайн всем сердцем, и потому рисуем его хорошо. В основе каждой нашей работы лежат идеи - интересные, уникальные, вдохновляющие. Наш дизайн работает по-настоящему эффективно и делает мир прекраснее.</p>
@@ -88,10 +84,6 @@
             <div class="main_acc__coub main_acc__coub3"></div>
             @if($isMobile)
                 <div class="mobile_coub_block">
-                    <div class="mob_info__title">
-                        <h1>Digital</h1>
-                        <p>web design &amp; social media</p>
-                    </div><!--.mob_info__title-->
 
                     <div class="mob_info__txt">
                         <p><span class="sel sel_w">Передовые технологии</span> сферы Digital - <span class="sel sel_w">ключ к успеху</span> и процветанию каждого современного бизнеса. Мы позаботимся о позитивном имидже вашего бренда в сети, предложив целый рядэффективных инструментов.</p>
@@ -143,10 +135,6 @@
             </div><!--.main_acc__in-->
             @if($isMobile)
                 <div class="mobile_coub_block">
-                    <div class="mob_info__title">
-                        <h1>Production</h1>
-                        <p>prints, merch &amp; posm</p>
-                    </div><!--.mob_info__title-->
 
                     <div class="mob_info__txt">
                         <p><span class="sel sel_g">Мы придумываем и воплощаем крутые идеи,</span> и для этого у нас есть всё необходимое. В нашем распоряжении современное оборудование, позволяющее осуществлять производство рекламной продукции самых разнообразных категорий.</p>

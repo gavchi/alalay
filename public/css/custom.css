@@ -9,9 +9,7 @@
     position: relative;
 }
 .mobile_coub_block{
-    position: absolute;
-    top: 0;
-    opacity:0;
+    display: none;
     width: 100%;
 }
 .bg-grey-mob .main_acc__box3 .mob_info__title h1{

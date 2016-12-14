@@ -936,6 +936,10 @@ body {
 	}
 
 	.main_acc__in {
+		display: table;
+	}
+
+	.main_acc__body {
 		display: none;
 	}
 
