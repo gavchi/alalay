@@ -6,6 +6,7 @@ use App\Client;
 use App\Mask;
 use App\Member;
 use App\News;
+use App\Seo;
 use App\Tag;
 use App\Work;
 use Image;
@@ -409,5 +410,54 @@ class AdminController extends Controller
             $Member->delete();
         }
         return redirect()->action('AdminController@getMembers');
+    }
+
+    /*
+     * SEO
+     * */
+    public function getSeo(){
+        $Seo = Seo::orderBy('url', 'ASC')->paginate();
+        return view('admin.seo')
+            ->with('Seo', $Seo);
+    }
+
+    public function getAddSeo(){
+        return view('admin.form.seo');
+    }
+
+    public function getEditSeo($id){
+        $Seo = Seo::find($id);
+        return view('admin.form.seo')
+            ->with('Seo', $Seo);
+    }
+
+    public function postEditSeo(Request $request, $id = null){
+        $rules = [
+            'url' => 'required|max:255',
+        ];
+        $this->validate($request, $rules);
+        if($id){
+            $Seo = Seo::findOrfail($id);
+        }else{
+            $Seo = new Seo();
+        }
+
+        $Seo->url = $request->get('url');
+        $Seo->title = $request->get('title');
+        $Seo->keywords = $request->get('keywords');
+        $Seo->description = $request->get('description');
+        $Seo->robots = $request->get('robots');
+        $Seo->copyright = $request->get('copyright');
+        $Seo->save();
+
+        return redirect()->action('AdminController@getSeo');
+    }
+
+    public function getDeleteSeo($id){
+        $Seo = Seo::find($id);
+        if($Seo){
+            $Seo->delete();
+        }
+        return redirect()->action('AdminController@getSeo');
     }
 }

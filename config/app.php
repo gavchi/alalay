@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => env('APP_URL', 'http://alalay.local:8080/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -160,6 +160,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 

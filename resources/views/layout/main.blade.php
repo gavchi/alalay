@@ -2,8 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    @if($Seo && $Seo->title)
+    <title>{{$Seo->title}}</title>
+    @else
     <title>Алалай!</title>
+    @endif
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @if($Seo)
+        @if($Seo->keywords)<meta name="keywords" content="{{$Seo->keywords}}">@endif
+        @if($Seo->description)<meta name="description" content="{{$Seo->description}}">@endif
+        @if($Seo->robots)<meta name="robots" content="{{$Seo->robots}}">@endif
+        @if($Seo->copyright)<meta name="copyright" content="{{$Seo->copyright}}">@endif
+    @endif
     <link rel="stylesheet" media="screen" href="/css/jquery.jscrollpane.css">
     <link rel="stylesheet" media="screen" href="/style.css?{{config('app.version')}}">
     <link rel="stylesheet" media="screen" href="/css/custom.css?{{config('app.version')}}">

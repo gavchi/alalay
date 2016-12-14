@@ -72,6 +72,7 @@
                 <li><a href="/admin/works"><i class="fa fa-briefcase"></i> <span>Портфолио</span></a></li>
                 <li><a href="/admin/news"><i class="fa fa-bullhorn"></i> <span>Новости</span></a></li>
                 <li><a href="/admin/members"><i class="fa fa-users"></i> <span>Команда</span></a></li>
+                <li><a href="/admin/seo"><i class="fa fa-area-chart"></i> <span>Seo</span></a></li>
                 <!-- begin sidebar minify button -->
                 <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
                 <!-- end sidebar minify button -->
