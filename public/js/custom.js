@@ -527,6 +527,6 @@ function redeclareDesign(){
 $(function() {
     //fitTitleText();
     historyJS();
-    redeclareDesign();
+    //redeclareDesign();
     sendEmail();
 });
