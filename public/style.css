@@ -131,7 +131,7 @@ body {
 
 		float: none;
 		width: 100%;
-		height: auto;
+		height: 100%;
 	}
 }
 
@@ -865,6 +865,8 @@ body {
 	.main_acc__box {
 		float: none;
 		width: 100%;
+		height: auto;
+		min-height: 33.3333%;
 	}
 
 	.main_acc__box1 {
@@ -880,7 +882,7 @@ body {
 	}
 
 	.main_acc {
-		height: auto;
+		height: 100%;
 		margin-right: 0;
 		padding-left: 0;
 		
