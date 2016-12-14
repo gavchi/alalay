@@ -242,12 +242,12 @@ $(document).ready(function() {
 			$('.main_acc__box').click(function(){
 				var mab_this = $(this);
 				var mab_box = mab_this.find('.mobile_coub_block');
-				var mab_offset = mab_this.find('.main_acc__side').position().top;
+				var mab_offset = mab_this.find('.main_acc__side').offset().top - 70;
 
 				$('.mobile_coub_block').not(mab_box).slideUp(250);
 				mab_box.stop(true).slideToggle(250);
 
-				$('html,body').animate({scrollTop: -mab_offset});
+				$('html,body').animate({scrollTop: mab_offset});
 			});
 		}
 	}
