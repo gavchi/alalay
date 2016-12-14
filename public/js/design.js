@@ -204,7 +204,7 @@ $(document).ready(function() {
 
 			var main_acc_in = (win_height - menu_height) / 3;
 
-			$('.main_acc__side').css({minHeight: main_acc_in});
+			$('.main_acc__side').css({height: main_acc_in});
 			
 			/*
 			$('.main_acc__box1').click(function(){
@@ -240,8 +240,10 @@ $(document).ready(function() {
 
 		if(win_width < 767) {
 			$('.main_acc__box').click(function(){
-				$('.main_acc__body').slideUp(250);
-				$(this).find('.main_acc__body').slideToggle(250);
+				var mab_this = $(this).find('.main_acc__body');
+
+				$('.main_acc__body').not(mab_this).slideUp(250);
+				mab_this.slideToggle(250);
 			});
 		}
 	}

@@ -988,6 +988,10 @@ body {
 		top: inherit;
 		left: inherit;
 		
+		max-width: 280px;
+		margin-right: auto;
+		margin-left: auto;
+		
 		-webkit-transform: none;
 		   -moz-transform: none;
 		    -ms-transform: none;
@@ -998,11 +1002,13 @@ body {
 	.main_acc__left {
 		float: none;
 		width: 100%;
+		padding: 0;
 	}
 
 	.main_acc__right {
 		float: none;
 		width: 100%;
+		padding: 0;
 	}
 
 	.main_acc__coub {
