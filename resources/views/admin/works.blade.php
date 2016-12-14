@@ -9,7 +9,7 @@
             <h4 class="panel-title">Работы</h4>
         </div>
         <div class="panel-body">
-            <a href="{{action('AdminController@getAddClient')}}" class="btn btn-success">Добавить</a>
+            <a href="{{action('AdminController@getAddWork')}}" class="btn btn-success">Добавить</a>
             {{--$Works->links()--}}
             <table id="data-table" class="table table-bordered nowrap" width="100%">
                 <thead>
