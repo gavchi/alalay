@@ -10,7 +10,6 @@
         </div>
         <div class="panel-body">
             <a href="{{action('AdminController@getAddClient')}}" class="btn btn-success">Добавить</a>
-            {{$Clients->links()}}
             <table id="data-table" class="table table-bordered nowrap" width="100%">
                 <thead>
                 <tr>
@@ -19,20 +18,19 @@
                     <th>Картинка</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="sortable" url="{{action('AdminController@anyOrderClients')}}">
                 @foreach($Clients as $Client)
-                    <tr>
-                        <td>
+                    <tr order="{{$Client->id}}">
+                        <td class="client_panel">
                             <a href="{{action('AdminController@getEditClient', $Client->id)}}" class="btn btn-warning btn-lg"><i class="fa fa-pencil"></i> </a>
                             <a href="{{action('AdminController@getDeleteClient', $Client->id)}}" class="btn btn-danger btn-lg"><i class="fa fa-times"></i> </a>
                         </td>
-                        <td>{{$Client->title}}</td>
-                        <td><img src="{{asset(config('image.path.client').$Client->image)}}"></td>
+                        <td class="client_title">{{$Client->title}}</td>
+                        <td class="client_image"><img src="{{asset(config('image.path.client').$Client->image)}}" width="150"></td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            {{$Clients->links()}}
         </div>
     </div>
 @stop

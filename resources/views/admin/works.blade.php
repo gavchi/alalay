@@ -21,7 +21,7 @@
                     <th>Картинка</th>
                 </tr>
                 </thead>
-                <tbody id="sortable">
+                <tbody id="sortable" url="{{action('AdminController@anyOrderWorks')}}">
                 @foreach($Works as $Work)
                     <tr order="{{$Work->id}}">
                         <td class="work_panel">

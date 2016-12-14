@@ -69,14 +69,14 @@ class MainController extends Controller
     }
 
     public function getTeam(){
-        $Members = Member::all();
+        $Members = Member::orderBy('order', 'ASC')->orderBy('id', 'DESC')->get();
         return $this->_getPage('team', [
             'Members' => $Members,
         ]);
     }
 
     public function getClients(){
-        $Clients = Client::all();
+        $Clients = Client::orderBy('order', 'ASC')->orderBy('id', 'DESC')->get();
         return $this->_getPage('clients', [
             'Clients' => $Clients,
         ]);

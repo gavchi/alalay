@@ -33,7 +33,7 @@ class AdminController extends Controller
      * Clients
      * */
     public function getClients(){
-        $Clients = Client::paginate();
+        $Clients = Client::orderBy('order', 'ASC')->orderBy('id', 'DESC')->get();
         return view('admin.clients')
             ->with('Clients', $Clients);
     }
@@ -46,6 +46,15 @@ class AdminController extends Controller
         $Client = Client::find($id);
         return view('admin.form.client')
             ->with('Client', $Client);
+    }
+
+    public function anyOrderClients(Request $request){
+        $order = $request->get('order');
+        $Clients = Client::orderBy('order', 'ASC')->orderBy('id', 'DESC')->get();
+        foreach($order as $key => $id){
+            $Clients->find($id)->update(['order' => $key]);
+        }
+        return response()->json(['success' => true]);
     }
 
     public function postEditClient(Request $request, $id = null){
@@ -322,7 +331,7 @@ class AdminController extends Controller
      * Memebers
      * */
     public function getMembers(){
-        $Members = Member::paginate();
+        $Members = Member::orderBy('order', 'ASC')->orderBy('id', 'DESC')->get();
         return view('admin.members')
             ->with('Members', $Members);
         return view('admin.members');
@@ -336,6 +345,15 @@ class AdminController extends Controller
         $Member = Member::find($id);
         return view('admin.form.member')
             ->with('Member', $Member);
+    }
+
+    public function anyOrderMembers(Request $request){
+        $order = $request->get('order');
+        $Members = Member::orderBy('order', 'ASC')->orderBy('id', 'DESC')->get();
+        foreach($order as $key => $id){
+            $Members->find($id)->update(['order' => $key]);
+        }
+        return response()->json(['success' => true]);
     }
 
     public function postEditMember(Request $request, $id = null){

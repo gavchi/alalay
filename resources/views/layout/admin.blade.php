@@ -190,7 +190,7 @@
                         type: "POST",
                         data: {order: order},
                         dataType: "json",
-                        url: '/admin/order-works',
+                        url: $('#sortable').attr('url'),
                         error: function(msg){
                             alert( 'Error' );
                         },

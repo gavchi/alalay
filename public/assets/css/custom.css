@@ -35,11 +35,16 @@ div.dataTables_info{
     width: 100%
 }
 
-#sortable td.work_panel{
+#sortable td.work_panel,
+#sortable td.client_panel,
+#sortable td.member_panel{
     width: 15%;
 }
 #sortable td.work_title{
     width: 15%;
+}
+#sortable td.client_title{
+    width: 60%;
 }
 #sortable td.work_type{
     width: 20%;
@@ -49,6 +54,14 @@ div.dataTables_info{
 }
 #sortable td.work_image{
     width: 10%;
+}
+#sortable td.client_image,
+#sortable td.member_image{
+    width: 25%;
+}
+#sortable td.member_name,
+#sortable td.member_post{
+    width: 30%;
 }
 #sortable td{
     background: #fff;

@@ -10,7 +10,6 @@
         </div>
         <div class="panel-body">
             <a href="{{action('AdminController@getAddMember')}}" class="btn btn-success">Добавить</a>
-            {{$Members->links()}}
             <table id="data-table" class="table table-bordered nowrap" width="100%">
                 <thead>
                 <tr>
@@ -20,21 +19,20 @@
                     <th>Фото</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="sortable" url="{{action('AdminController@anyOrderMembers')}}">
                 @foreach($Members as $Member)
-                    <tr>
-                        <td>
+                    <tr order="{{$Member->id}}">
+                        <td class="member_panel">
                             <a href="{{action('AdminController@getEditMember', $Member->id)}}" class="btn btn-warning btn-lg"><i class="fa fa-pencil"></i> </a>
                             <a href="{{action('AdminController@getDeleteMember', $Member->id)}}" class="btn btn-danger btn-lg"><i class="fa fa-times"></i> </a>
                         </td>
-                        <td>{{$Member->name}}</td>
-                        <td>{{$Member->post}}</td>
-                        <td><img src="{{asset(config('image.path.member').$Member->image)}}"></td>
+                        <td class="member_name">{{$Member->name}}</td>
+                        <td class="member_post">{{$Member->post}}</td>
+                        <td class="member_image"><img src="{{asset(config('image.path.member').$Member->image)}}" width="150"></td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            {{$Members->links()}}
         </div>
     </div>
 @stop
