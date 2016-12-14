@@ -240,7 +240,7 @@ $(document).ready(function() {
 
 		if(win_width < 767) {
 			$('.main_acc__box').click(function(){
-				var mab_this = $(this).find('.main_acc__box');
+				var mab_this = $(this).find('.mobile_coub_block');
 
 				$('.mobile_coub_block').not(mab_this).slideUp(250);
 				mab_this.slideToggle(250);
