@@ -929,6 +929,18 @@ body {
 
 	.main_acc__body {
 		display: none;
+		
+		width: 100%;
+	}
+
+	.main_acc__left {
+		float: none;
+		width: 100%;
+	}
+
+	.main_acc__right {
+		float: none;
+		width: 100%;
 	}
 
 	.main_acc__coub {
@@ -1018,6 +1030,11 @@ body {
 	}
 }
 
+@media (min-width: 767px) {
+	.main_acc__body {
+		display: block!important;
+	}
+}
 
 /* Select text */
 .sel {

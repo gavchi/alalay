@@ -199,12 +199,12 @@ $(document).ready(function() {
 
 		// Main page
 		if($('.main_acc').length) {
-			//var win_height = $(window).height();
+			var win_height = $(window).height();
 			var menu_height = $('.mobile_top').height();
 
 			var main_acc_in = (win_height - menu_height) / 3;
 
-			$('.main_acc__in').css({minHeight: main_acc_in});
+			$('.main_acc__side').css({minHeight: main_acc_in});
 			
 			/*
 			$('.main_acc__box1').click(function(){
@@ -233,6 +233,24 @@ $(document).ready(function() {
 		mobile();
 	});
 
+
+
+	function mob_main() {
+		win_width = $(window).width();
+
+		if(win_width < 767) {
+			$('.main_acc__box').click(function(){
+				$('.main_acc__body').slideUp(250);
+				$(this).find('.main_acc__body').slideToggle(250);
+			});
+		}
+	}
+
+	mob_main();
+
+	$(window).resize(function(){
+		mob_main();
+	});
 
 
 	// Portfolio
