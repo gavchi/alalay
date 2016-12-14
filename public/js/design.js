@@ -239,8 +239,8 @@ $(document).ready(function() {
 		win_width = $(window).width();
 
 		if(win_width < 767) {
-			$('.mobile_coub_block').click(function(){
-				var mab_this = $(this).find('.main_acc__body');
+			$('.main_acc__box').click(function(){
+				var mab_this = $(this).find('.main_acc__box');
 
 				$('.mobile_coub_block').not(mab_this).slideUp(250);
 				mab_this.slideToggle(250);
