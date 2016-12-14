@@ -240,10 +240,14 @@ $(document).ready(function() {
 
 		if(win_width < 767) {
 			$('.main_acc__box').click(function(){
-				var mab_this = $(this).find('.mobile_coub_block');
+				var mab_this = $(this);
+				var mab_box = mab_this.find('.mobile_coub_block');
+				var mab_offset = mab_this.find('.main_acc__side').position().top;
 
-				$('.mobile_coub_block').not(mab_this).slideUp(250);
-				mab_this.slideToggle(250);
+				$('.mobile_coub_block').not(mab_box).slideUp(250);
+				mab_box.stop(true).slideToggle(250);
+
+				$('html,body').animate({scrollTop: -mab_offset});
 			});
 		}
 	}
