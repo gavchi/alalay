@@ -867,6 +867,8 @@ body {
 		width: 100%;
 		height: auto;
 		min-height: 33.3333%;
+		
+		margin-left: 0;
 	}
 
 	.main_acc__box1 {

@@ -194,18 +194,19 @@ $(document).ready(function() {
 	
 
 
-	/*function mobile() {
+	function mobile() {
 		if($(window).width() < 767) {
 
 		// Main page
 		if($('.main_acc').length) {
 			//var win_height = $(window).height();
-			//var menu_height = $('.mobile_top').height();
+			var menu_height = $('.mobile_top').height();
 
-			//var main_acc_in = (win_height - menu_height) / 3;
+			var main_acc_in = (win_height - menu_height) / 3;
 
-			//$('.main_acc__box').height(main_acc_in);
-/*
+			$('.main_acc__in').css({minHeight: main_acc_in});
+			
+			/*
 			$('.main_acc__box1').click(function(){
 				window.location.href='design.html';
 			});
@@ -216,7 +217,7 @@ $(document).ready(function() {
 
 			$('.main_acc__box3').click(function(){
 				window.location.href='production.html';
-			});
+			});*/
 
 		}
 
@@ -231,7 +232,7 @@ $(document).ready(function() {
 	$(window).resize(function(){
 		mobile();
 	});
-*/
+
 
 
 	// Portfolio
