@@ -239,10 +239,10 @@ $(document).ready(function() {
 		win_width = $(window).width();
 
 		if(win_width < 767) {
-			$('.main_acc__box').click(function(){
+			$('.mobile_coub_block').click(function(){
 				var mab_this = $(this).find('.main_acc__body');
 
-				$('.main_acc__body').not(mab_this).slideUp(250);
+				$('.mobile_coub_block').not(mab_this).slideUp(250);
 				mab_this.slideToggle(250);
 			});
 		}

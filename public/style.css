@@ -936,7 +936,7 @@ body {
 	}
 
 	.main_acc__in {
-		display: table;
+		display: none;
 	}
 
 	.main_acc__side {
