@@ -861,6 +861,46 @@ body {
 }
 
 
+/* Select text */
+.sel {
+	display: inline;
+	margin-left: -3px;
+	padding-right: 3px;
+	padding-left: 3px;
+	
+	background-color: #fff;
+}
+.sel_w {background-color: #fff;}
+.sel_g {background-color: #3EC1CD;}
+
+
+.main_acc__left {
+	float: left;
+	width: 50%;
+	padding: 0 10px 0 5px;
+	
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+.main_acc__right {
+	float: left;
+	width: 50%;
+	padding: 0 15px;
+	
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+.main_acc__box3 .main_acc__txt p {
+	color: #fff;
+}
+
+.main_acc__box3 .main_acc__right {}
+
+
 @media (max-width: 767px) {
 	.main_acc__box {
 		float: none;
@@ -903,14 +943,23 @@ body {
 		float: none;
 		width: 100%;
 		
-		display: table-cell;
 		padding: 0 45px 0 65px;
 		
 		top: 0!important;
 		
 		vertical-align: middle;
 	}
-
+	
+	.main_acc__title {
+		position: relative;
+		top: 50%;
+		
+		-webkit-transform: translate(0,-50%);
+		   -moz-transform: translate(0,-50%);
+		    -ms-transform: translate(0,-50%);
+		     -o-transform: translate(0,-50%);
+		        transform: translate(0,-50%);
+	}
 
 	.main_acc__title span {
 		display: none;
@@ -931,6 +980,19 @@ body {
 		display: none;
 		
 		width: 100%;
+		height: auto;
+		padding: 0 15px 20px 15px;
+	}
+
+	.main_acc__txt {
+		top: inherit;
+		left: inherit;
+		
+		-webkit-transform: none;
+		   -moz-transform: none;
+		    -ms-transform: none;
+		     -o-transform: none;
+		        transform: none;
 	}
 
 	.main_acc__left {
@@ -1028,6 +1090,11 @@ body {
 		     -o-background-size: 25px 23px;
 		        background-size: 25px 23px;
 	}
+
+	.main_acc__body .top_box,
+	.howmatch {
+		display: none;
+	}
 }
 
 @media (min-width: 767px) {
@@ -1036,44 +1103,6 @@ body {
 	}
 }
 
-/* Select text */
-.sel {
-	display: inline;
-	margin-left: -3px;
-	padding-right: 3px;
-	padding-left: 3px;
-	
-	background-color: #fff;
-}
-.sel_w {background-color: #fff;}
-.sel_g {background-color: #3EC1CD;}
-
-
-.main_acc__left {
-	float: left;
-	width: 50%;
-	padding: 0 10px 0 5px;
-	
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-}
-
-.main_acc__right {
-	float: left;
-	width: 50%;
-	padding: 0 15px;
-	
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-}
-
-.main_acc__box3 .main_acc__txt p {
-	color: #fff;
-}
-
-.main_acc__box3 .main_acc__right {}
 
 
 /* 404 page */
