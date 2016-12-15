@@ -174,7 +174,7 @@ class AdminController extends Controller
             $imageName = str_random(8).'.'.$tempFile->getClientOriginalExtension();
 
             if(500 < $Image->width()){
-                $Image->resize(null, 200, function ($constraint) {
+                $Image->resize(500, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
             }
