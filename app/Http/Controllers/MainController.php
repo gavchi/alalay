@@ -109,10 +109,8 @@ class MainController extends Controller
     
     public function postNewsByTag(Request $request){
         $tag = $request->get('tag');
-        $Tag = Tag::with('news.tags')->where('name', $tag)->get();
-        dd($tag, $Tag);
-        $News = $Tag->news->orderBy('id', 'DESC');
-        dd($News);
+        $Tags = Tag::with('news.tags')->where('name', $tag)->first();
+        return response()->json(['success' => true, 'news' => view('parts.news', ['News' => $Tags->news])->render()]);
     }
 
     public function getContacts(){

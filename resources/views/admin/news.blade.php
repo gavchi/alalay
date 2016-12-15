@@ -30,7 +30,7 @@
                         </td>
                         <td>{{$Item->title}}</td>
                         <td>{{$Item->description}}</td>
-                        <td><img src="{{asset(config('image.path.news').$Item->image)}}"></td>
+                        <td>@if($Item->image)<img src="{{asset(config('image.path.news').$Item->image)}}">@endif</td>
                         <td>
                             @foreach($Item->tags as $Tag)
                                 {{$Tag->name}}

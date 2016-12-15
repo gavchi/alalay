@@ -527,16 +527,50 @@ function redeclareDesign(){
 function tagNews(){
     $('.journal__entries').on('click', '.loadByTag', function () {
         var tag = $(this).data('tag');
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            data: {tag: tag},
-            url: '/news-by-tag',
-            error: function(msg){
-                console.log( 'Error' );
+        var journal = $('.journal__entries');
+        var outJSON = false;
+        journal.animate({
+            opacity: 0
+        },{
+            duration: 500,
+            queue: true,
+            start: function(){
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    data: {tag: tag},
+                    url: '/news-by-tag',
+                    error: function(msg){
+                        console.log( 'Error' );
+                    },
+                     success: function(result, status){
+                     outJSON = result;
+                     //$('.journal__entries').css('opacity', '0.5').html(result.news).css('opacity', '1');
+                     }
+                });
             },
-            success: function(result, status){
-                outJSON = result;
+            complete: function(){
+                var waitNewsAjax = setInterval(function(){
+                    if(false != outJSON){
+                        clearInterval(waitNewsAjax);
+
+
+                        journal.html();
+                        journal.html(outJSON.news);
+                        $('.scroller').jScrollPane();
+
+                        journal.animate({
+                            opacity: 1
+                        },{
+                            duration: 1000,
+                            queue: true,
+                            easing: 'easeInOutCubic',
+                            complete: function () {
+                                console.log('adsf');
+                            }
+                        });
+                    }
+                }, 100);
             }
         });
     });

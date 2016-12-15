@@ -258,17 +258,9 @@ class AdminController extends Controller
     public function postEditNews(Request $request, $id = null){
         $rules = [
             'title' => 'required|max:255',
-            'description' => 'required'
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,jpg,gif,png|max:5120',
         ];
-        if(is_null($id)){
-            $rules = array_merge($rules, [
-                'image' => 'required|image|mimes:jpeg,jpg,gif,png|max:5120',
-            ]);
-        }else{
-            $rules = array_merge($rules, [
-                'image' => 'image|mimes:jpeg,jpg,gif,png|max:5120',
-            ]);
-        }
         $this->validate($request, $rules);
         if($id){
             $News = News::findOrfail($id);
