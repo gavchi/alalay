@@ -120,7 +120,9 @@ class AdminController extends Controller
     }
 
     public function getAddWork(){
-        return view('admin.form.work');
+        $Masks = Mask::all();
+        return view('admin.form.work')
+            ->with('Masks', $Masks);
     }
 
     public function getEditWork($id){
