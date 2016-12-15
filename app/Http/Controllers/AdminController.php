@@ -435,7 +435,7 @@ class AdminController extends Controller
 
     public function postEditSeo(Request $request, $id = null){
         $rules = [
-            'url' => 'required|max:255',
+            'url' => 'max:255',
         ];
         $this->validate($request, $rules);
         if($id){
