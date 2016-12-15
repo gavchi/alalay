@@ -451,13 +451,17 @@ body {
 	z-index: 5;
 	position: absolute;
 	top: 25%;
-	left: 26%;
+	left: 32%;
 	
 	display: block;
 	width: 99px;
 	height: 71px;
 	
-	transition: all .8s cubic-bezier(.79, -0.51, .2, 1.54), -webkit-transform .8s cubic-bezier(.79, -0.51, .2, 1.54);
+	-webkit-transition: all 250ms ease-out;
+	   -moz-transition: all 250ms ease-out;
+	    -ms-transition: all 250ms ease-out;
+	     -o-transition: all 250ms ease-out;
+	        transition: all 250ms ease-out;
 	
 	background: url(images/img-main-fig.png) no-repeat;
 	
@@ -483,9 +487,13 @@ body {
 	display: block;
 	width: 29px;
 	height: 36px;
-	margin-right: -1px;
+	margin-right: 3px;
 	
-	transition: all .8s cubic-bezier(.79, -0.51, .2, 1.54), -webkit-transform .8s cubic-bezier(.79, -0.51, .2, 1.54);
+	-webkit-transition: all 250ms ease-out;
+	   -moz-transition: all 250ms ease-out;
+	    -ms-transition: all 250ms ease-out;
+	     -o-transition: all 250ms ease-out;
+	        transition: all 250ms ease-out;
 	
 	background: url(images/img-main-fig2.png) no-repeat;
 	
