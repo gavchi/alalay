@@ -524,9 +524,28 @@ function redeclareDesign(){
     });*/
 }
 
+function tagNews(){
+    $('.journal__entries').on('click', '.loadByTag', function () {
+        var tag = $(this).data('tag');
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: {tag: tag},
+            url: '/news-by-tag',
+            error: function(msg){
+                console.log( 'Error' );
+            },
+            success: function(result, status){
+                outJSON = result;
+            }
+        });
+    });
+}
+
 $(function() {
     //fitTitleText();
     historyJS();
     //redeclareDesign();
     sendEmail();
+    tagNews();
 });
