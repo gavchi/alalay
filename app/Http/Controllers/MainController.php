@@ -6,6 +6,7 @@ use App\Client;
 use App\Member;
 use App\News;
 use App\Work;
+use App\Tag;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
 
