@@ -173,8 +173,8 @@ class AdminController extends Controller
             $Image = Image::make($request->file('image'));
             $imageName = str_random(8).'.'.$tempFile->getClientOriginalExtension();
 
-            if(500 < $Image->width()){
-                $Image->resize(500, null, function ($constraint) {
+            if(735 < $Image->width()){
+                $Image->resize(735, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
             }
