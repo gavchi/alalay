@@ -14,11 +14,7 @@
         </div><!--.page_box__side-->
 
         <div class="page_box__body">
-
-            <div class="journal__entries scroller">
-                @include('parts.news', ['News' => $News])
-            </div><!--.journal__entries-->
-
+            @include('parts.news', ['News' => $News])
         </div><!--.page_box__body-->
 
     </div><!--.journal-->

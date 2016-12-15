@@ -1,3 +1,4 @@
+<div class="journal__entries scroller">
 @foreach($News as $Item)
     <div class="journal__entry">
         <div class="journal__entry-title">
@@ -95,3 +96,4 @@
                     </div><!--.journal__entry-thumbs-->
                 </div><!--.journal__entry-->
 --}}
+</div><!--.journal__entries-->

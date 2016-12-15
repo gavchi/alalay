@@ -13,7 +13,6 @@ function historyJS(){
         var outJSON = false;
         var container = $('section.content');
         var sidebar = $('.sidebar__nav');
-        console.log(container.offset().left, container.width());
         container.animate({
             left: container.width()
         },{
@@ -525,12 +524,13 @@ function redeclareDesign(){
 }
 
 function tagNews(){
-    $('.journal__entries').on('click', '.loadByTag', function (e) {
+    $('section.content').on('click', '.loadByTag', function (e) {
         e.preventDefault();
         var tag = $(this).attr('tag');
-        var journal = $('.journal__entries');
+        var container = $(this).parents('.page_box__body');
+        var journal = container.find('.journal__entries');
         var outJSON = false;
-        journal.animate({
+        container.animate({
             opacity: 0
         },{
             duration: 500,
@@ -551,23 +551,23 @@ function tagNews(){
                 });
             },
             complete: function(){
+
+                $('.scroller').each(function() {
+                    var api = $(this).data('jsp');
+
+                    if($(this).hasClass('jspScrollable')) {
+                        api.destroy();
+                    }
+                });
+
                 var waitNewsAjax = setInterval(function(){
                     if(false != outJSON){
                         clearInterval(waitNewsAjax);
 
-                        $('.scroller').each(function() {
-                            var api = $(this).data('jsp');
-
-                            if($(this).hasClass('jspScrollable')) {
-                                api.destroy();
-                            }
-                        });
-
-                        journal.html();
-                        journal.html(outJSON.news);
+                        container.html('');
+                        container.html(outJSON.news);
 
                         var apis = [];
-
                         $('.scroller').each(
                             function() {
                                 apis.push($(this).jScrollPane({
@@ -576,14 +576,15 @@ function tagNews(){
                             }
                         )
 
-                        journal.animate({
+                        container.animate({
                             opacity: 1
                         },{
                             duration: 1000,
                             queue: true,
                             easing: 'easeInOutCubic',
                             complete: function () {
-                                console.log('adsf');
+
+                                ;
                             }
                         });
                     }
