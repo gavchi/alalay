@@ -14,7 +14,7 @@
             <div class="journal__entry-tags">
                 <ul class="list-unstyle">
                     @foreach($Item->tags as $Tag)
-                        <li><a href="#" data-tag="{{$Tag->name}}" class="loadByTag">#{{$Tag->name}}</a></li>
+                        <li><a href="#" tag="{{$Tag->name}}" class="loadByTag">#{{$Tag->name}}</a></li>
                     @endforeach
                 </ul>
             </div><!--.journal__entry-tags-->

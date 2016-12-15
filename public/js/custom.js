@@ -525,8 +525,9 @@ function redeclareDesign(){
 }
 
 function tagNews(){
-    $('.journal__entries').on('click', '.loadByTag', function () {
-        var tag = $(this).data('tag');
+    $('.journal__entries').on('click', '.loadByTag', function (e) {
+        e.preventDefault();
+        var tag = $(this).attr('tag');
         var journal = $('.journal__entries');
         var outJSON = false;
         journal.animate({
@@ -554,10 +555,26 @@ function tagNews(){
                     if(false != outJSON){
                         clearInterval(waitNewsAjax);
 
+                        $('.scroller').each(function() {
+                            var api = $(this).data('jsp');
+
+                            if($(this).hasClass('jspScrollable')) {
+                                api.destroy();
+                            }
+                        });
 
                         journal.html();
                         journal.html(outJSON.news);
-                        $('.scroller').jScrollPane();
+
+                        var apis = [];
+
+                        $('.scroller').each(
+                            function() {
+                                apis.push($(this).jScrollPane({
+                                    autoReinitialise: true,
+                                }).data().jsp);
+                            }
+                        )
 
                         journal.animate({
                             opacity: 1
