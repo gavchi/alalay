@@ -30,7 +30,8 @@ $colors = [
             <div class="portfolio__list scroller">
                 @foreach($firstItems as $Work)
 
-                    <a href="{{action('MainController@getProject', $Work['id'])}}" class="portfolio__item {{$colors[$counter%3]}} mask{{$counter}} text-white" data-title="{{$Work['title']}}">
+                    <a href="{{action('MainController@getProject', $Work['id'])}}"
+                       class="portfolio__item {{$colors[$counter%3]}} @if(!is_null($Work['mask'])) {{$Work['mask']['name']}} @endif text-white" data-title="{{$Work['title']}}">
                         <div class="portfolio__img">
                             <img src="{{asset(config('image.path.work.logo').$Work['logo'])}}" alt="{{$Work['title']}}">
                         </div><!--.portfolio__img-->
