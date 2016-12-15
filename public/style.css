@@ -463,6 +463,8 @@ body {
 	     -o-transition: all 750ms ease;
 	        transition: all 750ms ease;
 	
+	pointer-events: none;
+	
 	background: url(images/img-main-fig.png) no-repeat;
 	
 	-webkit-background-size: 100% 100%;
@@ -494,6 +496,8 @@ body {
 	    -ms-transition: all 750ms ease;
 	     -o-transition: all 750ms ease;
 	        transition: all 750ms ease;
+	
+	pointer-events: none;
 	
 	background: url(images/img-main-fig2.png) no-repeat;
 	
