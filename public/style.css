@@ -457,11 +457,11 @@ body {
 	width: 99px;
 	height: 71px;
 	
-	-webkit-transition: all 250ms ease-out;
-	   -moz-transition: all 250ms ease-out;
-	    -ms-transition: all 250ms ease-out;
-	     -o-transition: all 250ms ease-out;
-	        transition: all 250ms ease-out;
+	-webkit-transition: all 500ms ease-out;
+	   -moz-transition: all 500ms ease-out;
+	    -ms-transition: all 500ms ease-out;
+	     -o-transition: all 500ms ease-out;
+	        transition: all 500ms ease-out;
 	
 	background: url(images/img-main-fig.png) no-repeat;
 	
@@ -489,11 +489,11 @@ body {
 	height: 36px;
 	margin-right: 3px;
 	
-	-webkit-transition: all 250ms ease-out;
-	   -moz-transition: all 250ms ease-out;
-	    -ms-transition: all 250ms ease-out;
-	     -o-transition: all 250ms ease-out;
-	        transition: all 250ms ease-out;
+	-webkit-transition: all 500ms ease-out;
+	   -moz-transition: all 500ms ease-out;
+	    -ms-transition: all 500ms ease-out;
+	     -o-transition: all 500ms ease-out;
+	        transition: all 500ms ease-out;
 	
 	background: url(images/img-main-fig2.png) no-repeat;
 	
