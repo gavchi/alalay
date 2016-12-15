@@ -100,7 +100,7 @@ class MainController extends Controller
     }
 
     public function getNews(){
-        $News = News::with('tags')->get();
+        $News = News::with('tags')->orderBy('id', 'DESC')->get();
         return $this->_getPage('news', [
             'News' => $News,
         ]);
