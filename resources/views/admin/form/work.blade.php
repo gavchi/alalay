@@ -51,9 +51,9 @@
                     <label class="col-md-3 control-label">Маска</label>
                     <div class="col-md-9">
                         <select class="form-control" name="mask" role="changeMask">
-                            <option value="" @if(is_null($Work->mask)) selected @endif>Нет</option>
+                            <option value="" @if(isset($Work) && $Work && is_null($Work->mask)) selected @endif>Нет</option>
                             @foreach($Masks as $Masks)
-                            <option value="{{$Masks->id}}" @if($Work->mask && $Work->mask->id === $Masks->id) selected @endif>{{$Masks->name}}</option>
+                            <option value="{{$Masks->id}}" @if(isset($Work) && $Work && $Work->mask && $Work->mask->id === $Masks->id) selected @endif>{{$Masks->name}}</option>
                             @endforeach
                         </select>
                     </div>
