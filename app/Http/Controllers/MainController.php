@@ -105,6 +105,13 @@ class MainController extends Controller
             'News' => $News,
         ]);
     }
+    
+    public function postNewsByTag(Request $request){
+        $tag = $request->get('tag');
+        $Tag = Tag::with('news.tags')->where('name', $tag)->get();
+        $News = $Tag->news->orderBy('id', 'DESC');
+        dd($News);
+    }
 
     public function getContacts(){
         return $this->_getPage('contacts');
