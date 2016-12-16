@@ -86,7 +86,7 @@ class MainController extends Controller
     public function getPortfolio(){
         $Works = Work::with('mask')->orderBy('order', 'ASC')->orderBy('id', 'DESC')->get()->toArray();
         $firstItems = array_slice($Works, 0, count($Works)/2);
-        $secondItems = array_slice($Works, count($Works)/2 + 1);
+        $secondItems = array_slice($Works, count($Works)/2);
         return $this->_getPage('portfolio',[
             'firstItems' => $firstItems,
             'secondItems' => $secondItems,
