@@ -18,8 +18,8 @@ class AdminController extends Controller
 {
     /**
      * Create a new admin controller instance.
-     *
-     * @return void
+     * 
+     * return AdminController constructor.
      */
     public function __construct()
     {
