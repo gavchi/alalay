@@ -8,6 +8,7 @@
     <title>Алалай!</title>
     @endif
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     @if($Seo)
         @if($Seo->keywords)<meta name="keywords" content="{{$Seo->keywords}}">@endif
         @if($Seo->description)<meta name="description" content="{{$Seo->description}}">@endif
